@@ -1,8 +1,8 @@
-import 'package:ateliersfltter/atelier2.dart';
 import 'package:flutter/material.dart';
-import 'atelier1.dart';
+import 'atelier2.dart'; // ATELIER 4 : Import du modèle Product
+
 class ProductDetailPage extends StatefulWidget {
-  final Product product;
+  final Product product; // ATELIER 4 : Utilisation du modèle Product
   const ProductDetailPage({super.key, required this.product});
 
   @override
@@ -18,11 +18,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // TODO Étape 1: SliverAppBar
           SliverAppBar(
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
+              background: Image.asset( // ATELIER 4 : Image locale
                 widget.product.image,
                 fit: BoxFit.cover,
               ),
@@ -35,7 +34,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               ),
             ],
           ),
-          // TODO Étape 2: Contenu détaillé
           SliverList(
             delegate: SliverChildListDelegate([
               Padding(
@@ -43,7 +41,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Header avec prix
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -63,7 +60,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    // Rating
                     Row(
                       children: [
                         Icon(Icons.star, color: Colors.amber, size: 20),
@@ -77,7 +73,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       ],
                     ),
                     const SizedBox(height: 24),
-                    // Description
                     Text(
                       'Description',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -93,7 +88,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    // TODO Étape 3: Sélecteur de quantité
                     Text(
                       'Quantité',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -141,7 +135,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         );
                       },
                     ),
-                    const SizedBox(height: 100), // Espace pour le bouton fixe
+                    const SizedBox(height: 100),
                   ],
                 ),
               ),
@@ -149,7 +143,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           ),
         ],
       ),
-      // TODO Étape 4: Bouton fixe en bas
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -173,7 +166,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             Expanded(
               child: FilledButton(
                 onPressed: () {
-                  // Action d'ajout au panier
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('${widget.product.name} ajouté au panier'),

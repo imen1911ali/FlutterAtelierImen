@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'atelier3.dart';
+
 class ProfilePageM3 extends StatelessWidget {
   const ProfilePageM3({super.key});
+  
   Widget _buildStatChip(String value, String label, ColorScheme colorScheme) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -37,7 +38,6 @@ class ProfilePageM3 extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // TODO Étape 1: Photo de profil avec badge
             Stack(
               alignment: Alignment.bottomRight,
               children: [
@@ -50,9 +50,9 @@ class ProfilePageM3 extends StatelessWidget {
                       colors: [colorScheme.primary, colorScheme.secondary],
                     ),
                   ),
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     radius: 56,
-                    backgroundImage: const AssetImage('images/person1.png'),
+                    backgroundImage: AssetImage('assets/images/person1.png'),
                   ),
                 ),
                 Container(
@@ -71,7 +71,6 @@ class ProfilePageM3 extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            // TODO Étape 2: Nom et titre
             Text(
               'Mohamed Tounsi',
               style: textTheme.headlineMedium?.copyWith(
@@ -87,7 +86,6 @@ class ProfilePageM3 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
-            // TODO Étape 3: Statistiques
             Wrap(
               spacing: 12,
               runSpacing: 12,
@@ -98,8 +96,6 @@ class ProfilePageM3 extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 32),
-
-            // TODO Étape 4: Section "À propos"
             Card(
               elevation: 0,
               color: colorScheme.surfaceContainerHighest,
@@ -122,8 +118,7 @@ class ProfilePageM3 extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Passionné par le développement mobile et les technologies innovantes.J\'aime créer des applications qui améliorent la vie des utilisateurs',
-
+                      'Passionné par le développement mobile et les technologies innovantes. J\'aime créer des applications qui améliorent la vie des utilisateurs',
                       style: textTheme.bodyLarge?.copyWith(
                         color: colorScheme.onSurfaceVariant,
                         height: 1.5,
@@ -136,11 +131,8 @@ class ProfilePageM3 extends StatelessWidget {
           ],
         ),
       ),
-      // TODO Étape 5: Bouton flottant
-      // Ajouter dans le Scaffold (après le body) :
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          // Action de modification
           debugPrint('Modification du profil');
         },
         icon: const Icon(Icons.edit),
