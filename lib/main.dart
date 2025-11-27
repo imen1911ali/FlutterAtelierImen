@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'atelier5.dart';
+import 'atelier6.dart'; // Import de l'atelier 6
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +15,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: const ColorScheme.light(
-          primary: Color(0xFF6750A4), // ✅ Violet primary Material 3
-          onPrimary: Colors.white,
-          surface: Colors.white,
-          onSurface: Colors.black,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
         ),
       ),
-      home: const ProductListPageM3(),
+      home: const ProductListPageM6(), // Page d'accueil de l'atelier 6
     );
   }
 }
